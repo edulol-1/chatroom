@@ -18,7 +18,7 @@ class ChatRoom:
     def create_client(self):
         pass
 
-def run_parser():
+def parse(sysargs):
     ''' Present the the interface options.'''
     parser = argparse.ArgumentParser(
         description='chatroom',
@@ -30,9 +30,8 @@ def run_parser():
     parser.add_argument('-l', '--listen', action='store_true', help='Listen for incomming conections')
     parser.add_argument('-p', '--port', type=int, default=5555, help='Specified port')
     parser.add_argument('-t', '--target', default='192.168.1.203', help='Specified IP')
-    args = parser.parse_args()
-    chatroom = ChatRoom(args)
-    chatroom.launch()
+    return parser.parse_args(sysargs)
 
 if __name__ == '__main__':
-    run_parser()
+    args = parse(sys.argv[1:])
+    chatroom = ChatRoom()
