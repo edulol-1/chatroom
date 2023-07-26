@@ -1,5 +1,22 @@
 import argparse
 import textwrap
+from server import Server
+from client import Client
+
+class ChatRoom:
+    ''' Implements a little chatroom within the LAN.'''
+
+    def __init__(self, args):
+        self.args = args
+
+    def launch(self):
+        pass
+
+    def create_server(self):
+        pass
+
+    def create_client(self):
+        pass
 
 def run_parser():
     ''' Present the the interface options.'''
@@ -14,6 +31,8 @@ def run_parser():
     parser.add_argument('-p', '--port', type=int, default=5555, help='Specified port')
     parser.add_argument('-t', '--target', default='192.168.1.203', help='Specified IP')
     args = parser.parse_args()
+    chatroom = ChatRoom(args)
+    chatroom.launch()
 
 if __name__ == '__main__':
     run_parser()
